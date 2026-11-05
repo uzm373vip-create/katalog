@@ -1,0 +1,1501 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>XOJI BOBO | Kolbasa mahsulotlari</title>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: #f4f6f5;
+    color: #17251c;
+}
+
+header {
+    background: #002b1c;
+    color: white;
+    padding: 15px 5%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: #f5d58b;
+    font-size: 25px;
+    font-weight: bold;
+}
+
+.logo img {
+    width: 55px;
+    height: 55px;
+    object-fit: contain;
+}
+
+nav {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    font-size: 15px;
+}
+
+nav a:hover {
+    color: #e5b94e;
+}
+
+.hero {
+    background: linear-gradient(100deg, #003b24, #001b12);
+    color: white;
+    min-height: 390px;
+    padding: 45px 7%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 30px;
+    flex-wrap: wrap;
+}
+
+.hero-text {
+    flex: 1;
+    min-width: 270px;
+}
+
+.hero-logo {
+    background: #002718;
+    border: 3px solid #d9a92e;
+    border-radius: 10px;
+    padding: 15px;
+    display: inline-flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 22px;
+}
+
+.hero-logo img {
+    width: 100px;
+    height: 100px;
+    object-fit: contain;
+}
+
+.hero-logo h1 {
+    font-size: 42px;
+    color: #ffe8a8;
+}
+
+.hero-logo p {
+    color: white;
+    letter-spacing: 4px;
+    font-size: 12px;
+    margin-top: 7px;
+}
+
+.hero-text h2 {
+    font-size: 25px;
+    margin-bottom: 20px;
+}
+
+.hero-text p {
+    line-height: 1.7;
+    color: #e2e9e3;
+}
+
+.hero-photo {
+    flex: 1;
+    min-width: 260px;
+    max-width: 530px;
+    height: 280px;
+    border-radius: 15px;
+    overflow: hidden;
+    background: #174b30;
+}
+
+.hero-photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.hero-buttons {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-top: 20px;
+}
+
+.btn {
+    border: none;
+    padding: 12px 18px;
+    border-radius: 7px;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+.btn-gold {
+    background: #e8bd52;
+    color: #142719;
+}
+
+.btn-green {
+    background: #006b3b;
+    color: white;
+}
+
+.btn-red {
+    background: #d92727;
+    color: white;
+}
+
+.btn:hover {
+    opacity: .85;
+}
+
+.container {
+    width: 90%;
+    max-width: 1350px;
+    margin: auto;
+}
+
+.categories {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    flex-wrap: wrap;
+    padding: 30px 0;
+}
+
+.category {
+    background: white;
+    border: 1px solid #d9e0dc;
+    padding: 13px 22px;
+    border-radius: 10px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.category.active,
+.category:hover {
+    background: #006b3b;
+    color: white;
+}
+
+.section-title {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 15px;
+    margin: 20px 0;
+    flex-wrap: wrap;
+}
+
+.section-title h2 {
+    font-size: 26px;
+    color: #003d25;
+}
+
+.search {
+    width: 280px;
+    max-width: 100%;
+    padding: 12px;
+    border: 1px solid #ccd5cf;
+    border-radius: 8px;
+    font-size: 15px;
+}
+
+.products {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    padding-bottom: 45px;
+}
+
+.card {
+    background: white;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 3px 12px #00000012;
+    border: 1px solid #e1e5e2;
+    transition: .3s;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+}
+
+.card img {
+    width: 100%;
+    height: 190px;
+    object-fit: cover;
+}
+
+.card-info {
+    padding: 15px;
+}
+
+.tag {
+    display: inline-block;
+    background: #e0f3e7;
+    color: #006b3b;
+    padding: 5px 10px;
+    border-radius: 20px;
+    font-size: 12px;
+    margin-bottom: 10px;
+}
+
+.card h3 {
+    font-size: 18px;
+    margin-bottom: 8px;
+}
+
+.card p {
+    color: #68736c;
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+.price {
+    color: #00783f !important;
+    font-size: 19px !important;
+    font-weight: bold;
+    margin: 13px 0;
+}
+
+.card-actions {
+    display: flex;
+    gap: 8px;
+}
+
+.card-actions button {
+    flex: 1;
+}
+
+.add-section,
+.receipt-section {
+    background: white;
+    border-radius: 15px;
+    padding: 30px;
+    margin: 20px auto 50px;
+    box-shadow: 0 3px 12px #0000000d;
+}
+
+.add-section h2,
+.receipt-section h2 {
+    color: #003d25;
+    margin-bottom: 20px;
+}
+
+.product-form {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+}
+
+.product-form input,
+.product-form select,
+.product-form textarea,
+.receipt-controls input,
+.receipt-controls select,
+.payment-box input {
+    width: 100%;
+    padding: 13px;
+    border: 1px solid #cbd5ce;
+    border-radius: 7px;
+    font-size: 15px;
+    font-family: Arial;
+}
+
+.product-form textarea {
+    resize: vertical;
+    min-height: 90px;
+}
+
+.full {
+    grid-column: 1 / -1;
+}
+
+.form-buttons {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.upload-box {
+    background: #eaf4ed;
+    border: 2px dashed #77a68a;
+    padding: 15px;
+    border-radius: 8px;
+}
+
+.upload-box label {
+    display: block;
+    margin-bottom: 10px;
+    font-weight: bold;
+    color: #00552f;
+}
+
+#productPreview {
+    max-width: 150px;
+    max-height: 110px;
+    display: none;
+    margin-top: 10px;
+    border-radius: 8px;
+    object-fit: cover;
+}
+
+/* CHEK KALKULYATORI */
+
+.receipt-section > p {
+    margin-bottom: 15px;
+}
+
+.receipt-controls {
+    display: grid;
+    grid-template-columns: 2fr 1fr auto;
+    gap: 12px;
+    margin: 20px 0;
+}
+
+.receipt-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 15px 0;
+}
+
+.receipt-table th,
+.receipt-table td {
+    border-bottom: 1px solid #e1e5e2;
+    padding: 12px 8px;
+    text-align: left;
+}
+
+.receipt-total {
+    text-align: right;
+    color: #006b3b;
+    font-size: 22px;
+    font-weight: bold;
+    margin: 18px 0;
+}
+
+.payment-box {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+    max-width: 650px;
+    margin: 15px 0;
+}
+
+.payment-box label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+}
+
+.receipt-actions {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-top: 15px;
+}
+
+.receipt-empty {
+    text-align: center;
+    color: #777;
+    padding: 20px;
+}
+
+.about {
+    background: #e7eee9;
+    padding: 50px 10%;
+    text-align: center;
+}
+
+.about h2 {
+    color: #00452b;
+    margin-bottom: 18px;
+}
+
+.about p {
+    max-width: 800px;
+    margin: auto;
+    line-height: 1.8;
+    color: #4e5b52;
+}
+
+footer {
+    background: #002b1c;
+    color: white;
+    padding: 25px;
+    text-align: center;
+    line-height: 1.8;
+}
+
+.empty {
+    text-align: center;
+    padding: 40px;
+    color: #777;
+    grid-column: 1 / -1;
+}
+
+@media(max-width: 1000px) {
+    .products {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media(max-width: 700px) {
+    header {
+        justify-content: center;
+        text-align: center;
+    }
+
+    nav {
+        justify-content: center;
+        gap: 13px;
+    }
+
+    .hero {
+        padding: 35px 5%;
+        text-align: center;
+    }
+
+    .hero-logo {
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+
+    .hero-logo h1 {
+        font-size: 30px;
+    }
+
+    .hero-photo {
+        max-width: 100%;
+        width: 100%;
+    }
+
+    .hero-buttons {
+        justify-content: center;
+    }
+
+    .products {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 12px;
+    }
+
+    .card img {
+        height: 145px;
+    }
+
+    .card-info {
+        padding: 10px;
+    }
+
+    .card h3 {
+        font-size: 15px;
+    }
+
+    .price {
+        font-size: 16px !important;
+    }
+
+    .product-form {
+        grid-template-columns: 1fr;
+    }
+
+    .full {
+        grid-column: auto;
+    }
+
+    .add-section,
+    .receipt-section {
+        padding: 18px;
+    }
+
+    .receipt-controls,
+    .payment-box {
+        grid-template-columns: 1fr;
+    }
+
+    .receipt-table th,
+    .receipt-table td {
+        font-size: 12px;
+        padding: 8px 4px;
+    }
+}
+
+@media(max-width: 380px) {
+    .products {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* CHEKNI CHOP ETISH */
+
+@media print {
+    body * {
+        visibility: hidden;
+    }
+
+    #receiptPrint,
+    #receiptPrint * {
+        visibility: visible;
+    }
+
+    #receiptPrint {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        padding: 20px;
+        background: white;
+        color: black;
+    }
+
+    .no-print {
+        display: none !important;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <div class="logo">
+        <img id="headerLogo" src="" alt="" style="display:none">
+        XOJI BOBO
+    </div>
+
+    <nav>
+        <a href="#bosh">Bosh sahifa</a>
+        <a href="#katalog">Katalog</a>
+        <a href="#narxlar">Narxlar</a>
+        <a href="#chek">Chek kalkulyatori</a>
+        <a href="#qoshish">Mahsulot qo‘shish</a>
+        <a href="#haqida">Ma’lumot</a>
+    </nav>
+</header>
+
+<!-- BOSH SAHIFA -->
+
+<section class="hero" id="bosh">
+
+    <div class="hero-text">
+
+        <div class="hero-logo">
+            <img id="mainLogo" src="" alt="XOJI BOBO logotipi"
+                 style="display:none">
+
+            <div>
+                <h1>XOJI BOBO</h1>
+                <p>KOLBASA MAHSULOTLARI</p>
+            </div>
+        </div>
+
+        <h2>Sifatli mahsulotlar – sog‘lom hayot uchun!</h2>
+
+        <p>
+            XOJI BOBO — mazali, sifatli va turli xil
+            kolbasa mahsulotlari katalogi.
+            Bizning mahsulotlarimiz bilan tanishing!
+        </p>
+
+        <div class="hero-buttons">
+            <a href="#katalog">
+                <button class="btn btn-gold">Katalogni ko‘rish</button>
+            </a>
+
+            <button class="btn btn-green"
+                    onclick="document.getElementById('heroFile').click()">
+                Bosh sahifa rasmini yuklash
+            </button>
+        </div>
+
+        <input type="file" id="heroFile" accept="image/*"
+               hidden onchange="uploadHero(event)">
+
+        <div class="hero-buttons">
+            <button class="btn btn-green"
+                    onclick="document.getElementById('logoFile').click()">
+                Logotipni yuklash
+            </button>
+        </div>
+
+        <input type="file" id="logoFile" accept="image/*"
+               hidden onchange="uploadLogo(event)">
+
+    </div>
+
+    <div class="hero-photo">
+        <img id="heroImage"
+             src="https://images.unsplash.com/photo-1607623814075-e51df1bdc82f?w=1000"
+             alt="Kolbasa mahsulotlari">
+    </div>
+
+</section>
+
+<!-- KATALOG -->
+
+<main class="container" id="katalog">
+
+    <div class="categories">
+        <button class="category active" onclick="filterProducts('Hammasi',this)">Hammasi</button>
+        <button class="category" onclick="filterProducts('Dudlangan',this)">Dudlangan</button>
+        <button class="category" onclick="filterProducts('Qaynatilgan',this)">Qaynatilgan</button>
+        <button class="category" onclick="filterProducts('Go‘shtli',this)">Go‘shtli</button>
+        <button class="category" onclick="filterProducts('Maxsus',this)">Maxsus</button>
+        <button class="category" onclick="filterProducts('Tovuq',this)">Tovuq</button>
+    </div>
+
+    <div class="section-title">
+        <h2>⭐ Katalogimiz</h2>
+        <input class="search" id="search"
+               type="text"
+               placeholder="Mahsulot qidirish..."
+               oninput="showProducts()">
+    </div>
+
+    <div class="products" id="products"></div>
+
+</main>
+
+<!-- NARXLAR -->
+
+<section class="container" id="narxlar">
+    <div class="section-title">
+        <h2>💰 Mahsulot narxlari</h2>
+    </div>
+    <div class="products" id="priceProducts"></div>
+</section>
+
+<!-- CHEK KALKULYATORI -->
+
+<section class="container" id="chek">
+
+    <div class="receipt-section">
+
+        <h2>🧾 Xarid cheki</h2>
+
+        <p>
+            Kolbasa turini tanlang, kilogrammini kiriting.
+            Sayt umumiy summani avtomatik hisoblaydi.
+        </p>
+
+        <div class="receipt-controls no-print">
+
+            <select id="receiptProduct">
+                <option value="">Kolbasa turini tanlang</option>
+            </select>
+
+            <input type="number" id="receiptWeight"
+                   min="0.01" step="0.01"
+                   placeholder="Necha kg?">
+
+            <button class="btn btn-green"
+                    type="button"
+                    onclick="addReceiptItem()">
+                Chekka qo‘shish
+            </button>
+
+        </div>
+
+        <div id="receiptPrint">
+
+            <h2>XOJI BOBO — Xarid cheki</h2>
+
+            <p id="receiptDate"></p>
+
+            <table class="receipt-table">
+
+                <thead>
+                    <tr>
+                        <th>Mahsulot</th>
+                        <th>Kg</th>
+                        <th>1 kg narxi</th>
+                        <th>Jami</th>
+                        <th class="no-print"></th>
+                    </tr>
+                </thead>
+
+                <tbody id="receiptRows">
+                    <tr>
+                        <td colspan="5" class="receipt-empty">
+                            Hozircha mahsulot qo‘shilmagan.
+                        </td>
+                    </tr>
+                </tbody>
+
+            </table>
+
+            <div class="receipt-total" id="receiptTotal">
+                Jami: 0 so‘m
+            </div>
+
+            <p id="printPaid" style="display:none"></p>
+            <p id="printChange" style="display:none"></p>
+
+        </div>
+
+        <div class="payment-box no-print">
+
+            <div>
+                <label>To‘langan pul (so‘m)</label>
+                <input type="number" id="paidAmount"
+                       min="0"
+                       placeholder="Masalan: 200000"
+                       oninput="updateReceipt()">
+            </div>
+
+            <div>
+                <label>Qaytim</label>
+                <input type="text" id="changeAmount"
+                       value="0 so‘m" readonly>
+            </div>
+
+        </div>
+
+        <div class="receipt-actions no-print">
+
+            <button class="btn btn-gold"
+                    onclick="printReceipt()">
+                🖨 Chekni chiqarish
+            </button>
+
+            <button class="btn btn-red"
+                    onclick="clearReceipt()">
+                Chekni tozalash
+            </button>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- MAHSULOT QO‘SHISH -->
+
+<section class="container" id="qoshish">
+
+    <div class="add-section">
+
+        <h2 id="formTitle">➕ Yangi mahsulot qo‘shish</h2>
+
+        <form class="product-form" id="productForm">
+
+            <input type="text" id="productName"
+                   placeholder="Mahsulot nomi" required>
+
+            <input type="number" id="productPrice"
+                   placeholder="Narxi (so‘m/kg)"
+                   min="1" required>
+
+            <select id="productCategory" required>
+                <option value="">Kategoriyani tanlang</option>
+                <option>Dudlangan</option>
+                <option>Qaynatilgan</option>
+                <option>Go‘shtli</option>
+                <option>Maxsus</option>
+                <option>Tovuq</option>
+                <option>Boshqa</option>
+            </select>
+
+            <input type="text" id="productWeight"
+                   placeholder="Vazni (masalan: 1 kg)">
+
+            <textarea id="productDescription"
+                      class="full"
+                      placeholder="Mahsulot haqida ma'lumot..."></textarea>
+
+            <div class="upload-box full">
+                <label>📷 Mahsulot rasmini tanlang</label>
+                <input type="file" id="productImage"
+                       accept="image/*">
+                <img id="productPreview" alt="Rasm ko‘rinishi">
+            </div>
+
+            <div class="form-buttons full">
+
+                <button class="btn btn-green" type="submit"
+                        id="saveButton">
+                    Mahsulotni qo‘shish
+                </button>
+
+                <button class="btn btn-red" type="button"
+                        onclick="resetForm()">
+                    Bekor qilish
+                </button>
+
+            </div>
+
+        </form>
+
+    </div>
+
+</section>
+
+<!-- BIZ HAQIMIZDA -->
+
+<section class="about" id="haqida">
+    <h2>XOJI BOBO haqida</h2>
+
+    <p>
+        XOJI BOBO kolbasa mahsulotlari katalogiga xush kelibsiz!
+        Bu yerda turli xil mahsulotlar, ularning rasmlari,
+        tavsiflari va narxlari bilan tanishishingiz mumkin.
+        Katalog doimiy ravishda yangilanib boradi.
+    </p>
+</section>
+
+<footer>
+    <h2>XOJI BOBO</h2>
+    <p>Kolbasa mahsulotlari</p>
+    <p>© 2026 XOJI BOBO | Barcha huquqlar himoyalangan</p>
+</footer>
+
+<script>
+
+// BOSHLANG‘ICH MAHSULOTLAR
+
+let products = JSON.parse(localStorage.getItem("xojiboboProducts")) || [
+
+    {
+        id: 1,
+        name: "Dudlangan kalbasa",
+        category: "Dudlangan",
+        price: 85000,
+        weight: "1 kg",
+        description: "Mazali va xushbo‘y dudlangan kalbasa.",
+        image: "https://images.unsplash.com/photo-1607623814075-e51df1bdc82f?w=600"
+    },
+
+    {
+        id: 2,
+        name: "Qaynatilgan kalbasa",
+        category: "Qaynatilgan",
+        price: 65000,
+        weight: "1 kg",
+        description: "Yumshoq va mazali mahsulot.",
+        image: "https://images.unsplash.com/photo-1544025162-d76694265947?w=600"
+    },
+
+    {
+        id: 3,
+        name: "Go‘shtli kalbasa",
+        category: "Go‘shtli",
+        price: 95000,
+        weight: "1 kg",
+        description: "Go‘shtli kalbasa mahsuloti.",
+        image: "https://images.unsplash.com/photo-1524438418049-ab2acb7aa48f?w=600"
+    },
+
+    {
+        id: 4,
+        name: "Maxsus kalbasa",
+        category: "Maxsus",
+        price: 110000,
+        weight: "1 kg",
+        description: "O‘ziga xos mazali ta’m.",
+        image: "https://images.unsplash.com/photo-1558030006-450675393462?w=600"
+    },
+
+    {
+        id: 5,
+        name: "Tovuq kalbasasi",
+        category: "Tovuq",
+        price: 70000,
+        weight: "1 kg",
+        description: "Yengil va mazali mahsulot.",
+        image: "https://images.unsplash.com/photo-1607623814075-e51df1bdc82f?w=600"
+    },
+
+    {
+        id: 6,
+        name: "Achchiq kalbasa",
+        category: "Dudlangan",
+        price: 90000,
+        weight: "1 kg",
+        description: "Achchiq ta'mni yoqtiruvchilar uchun.",
+        image: "https://images.unsplash.com/photo-1544025162-d76694265947?w=600"
+    }
+
+];
+
+let selectedCategory = "Hammasi";
+let editId = null;
+let selectedProductImage = "";
+
+// MA'LUMOTLARNI SAQLASH
+
+function saveData() {
+    localStorage.setItem("xojiboboProducts", JSON.stringify(products));
+}
+
+// NARXNI CHIROYLI KO‘RSATISH
+
+function money(number) {
+    return Number(number).toLocaleString("uz-UZ") + " so‘m / kg";
+}
+
+// KATALOGNI KO‘RSATISH
+
+function showProducts() {
+
+    let box = document.getElementById("products");
+    let priceBox = document.getElementById("priceProducts");
+    let search = document.getElementById("search").value.toLowerCase();
+
+    let filtered = products.filter(item => {
+
+        let categoryMatch =
+            selectedCategory === "Hammasi" ||
+            item.category === selectedCategory;
+
+        let searchMatch =
+            item.name.toLowerCase().includes(search);
+
+        return categoryMatch && searchMatch;
+    });
+
+    box.innerHTML = "";
+
+    if (filtered.length === 0) {
+        box.innerHTML = '<div class="empty">Mahsulot topilmadi.</div>';
+    }
+
+    filtered.forEach(item => {
+
+        box.innerHTML += `
+            <div class="card">
+
+                <img src="${item.image}" alt="${item.name}"
+                     onerror="this.src='https://placehold.co/600x400?text=XOJI+BOBO'">
+
+                <div class="card-info">
+
+                    <span class="tag">${item.category}</span>
+
+                    <h3>${item.name}</h3>
+
+                    <p>${item.description || "Mahsulot haqida ma'lumot yo‘q."}</p>
+
+                    <p>Vazni: ${item.weight || "1 kg"}</p>
+
+                    <div class="price">${money(item.price)}</div>
+
+                    <div class="card-actions">
+
+                        <button class="btn btn-green"
+                                onclick="editProduct(${item.id})">
+                            ✏️ Tahrirlash
+                        </button>
+
+                        <button class="btn btn-red"
+                                onclick="deleteProduct(${item.id})">
+                            🗑 O‘chirish
+                        </button>
+
+                    </div>
+
+                </div>
+            </div>
+        `;
+    });
+
+    priceBox.innerHTML = "";
+
+    products.forEach(item => {
+
+        priceBox.innerHTML += `
+            <div class="card">
+                <div class="card-info">
+                    <h3>${item.name}</h3>
+                    <p>${item.category}</p>
+                    <div class="price">${money(item.price)}</div>
+                </div>
+            </div>
+        `;
+    });
+}
+
+// KATEGORIYA TANLASH
+
+function filterProducts(category, button) {
+
+    selectedCategory = category;
+
+    document.querySelectorAll(".category").forEach(btn => {
+        btn.classList.remove("active");
+    });
+
+    button.classList.add("active");
+
+    showProducts();
+}
+
+// RASM TANLASH
+
+document.getElementById("productImage").addEventListener("change", function(e) {
+
+    let file = e.target.files[0];
+
+    if (!file) return;
+
+    if (!file.type.startsWith("image/")) {
+        alert("Iltimos, rasm faylini tanlang!");
+        return;
+    }
+
+    let reader = new FileReader();
+
+    reader.onload = function() {
+
+        selectedProductImage = reader.result;
+
+        let preview = document.getElementById("productPreview");
+
+        preview.src = selectedProductImage;
+        preview.style.display = "block";
+    };
+
+    reader.readAsDataURL(file);
+});
+
+// MAHSULOT QO‘SHISH VA TAHRIRLASH
+
+document.getElementById("productForm").addEventListener("submit", function(e) {
+
+    e.preventDefault();
+
+    let name = document.getElementById("productName").value.trim();
+    let price = Number(document.getElementById("productPrice").value);
+    let category = document.getElementById("productCategory").value;
+    let weight = document.getElementById("productWeight").value.trim();
+    let description = document.getElementById("productDescription").value.trim();
+
+    if (!name || !price || price < 1 || !category) {
+        alert("Ma'lumotlarni to‘g‘ri kiriting!");
+        return;
+    }
+
+    if (editId !== null) {
+
+        let index = products.findIndex(item => item.id === editId);
+
+        if (index !== -1) {
+
+            products[index] = {
+                ...products[index],
+                name,
+                price,
+                category,
+                weight,
+                description,
+                image: selectedProductImage || products[index].image
+            };
+        }
+
+        alert("Mahsulot muvaffaqiyatli o‘zgartirildi!");
+
+    } else {
+
+        let newProduct = {
+            id: Date.now(),
+            name,
+            price,
+            category,
+            weight,
+            description,
+            image: selectedProductImage ||
+            "https://placehold.co/600x400?text=XOJI+BOBO"
+        };
+
+        products.push(newProduct);
+
+        alert("Yangi mahsulot qo‘shildi!");
+    }
+
+    saveData();
+    resetForm();
+    showProducts();
+    fillReceiptProducts();
+});
+
+// TAHRIRLASH
+
+function editProduct(id) {
+
+    let item = products.find(product => product.id === id);
+
+    if (!item) return;
+
+    editId = id;
+
+    document.getElementById("productName").value = item.name;
+    document.getElementById("productPrice").value = item.price;
+    document.getElementById("productCategory").value = item.category;
+    document.getElementById("productWeight").value = item.weight;
+    document.getElementById("productDescription").value = item.description;
+
+    selectedProductImage = item.image;
+
+    let preview = document.getElementById("productPreview");
+
+    preview.src = item.image;
+    preview.style.display = "block";
+
+    document.getElementById("formTitle").innerText = "✏️ Mahsulotni tahrirlash";
+    document.getElementById("saveButton").innerText = "O‘zgarishlarni saqlash";
+
+    document.getElementById("qoshish").scrollIntoView({
+        behavior: "smooth"
+    });
+}
+
+// MAHSULOTNI O‘CHIRISH
+
+function deleteProduct(id) {
+
+    if (!confirm("Bu mahsulotni o‘chirmoqchimisiz?")) return;
+
+    products = products.filter(item => item.id !== id);
+
+    saveData();
+    showProducts();
+    fillReceiptProducts();
+}
+
+// FORMNI TOZALASH
+
+function resetForm() {
+
+    document.getElementById("productForm").reset();
+
+    editId = null;
+    selectedProductImage = "";
+
+    document.getElementById("productPreview").src = "";
+    document.getElementById("productPreview").style.display = "none";
+
+    document.getElementById("formTitle").innerText = "➕ Yangi mahsulot qo‘shish";
+    document.getElementById("saveButton").innerText = "Mahsulotni qo‘shish";
+}
+
+// BOSH SAHIFA RASMINI YUKLASH
+
+function uploadHero(event) {
+
+    let file = event.target.files[0];
+
+    if (!file) return;
+
+    if (!file.type.startsWith("image/")) {
+        alert("Rasm faylini tanlang!");
+        return;
+    }
+
+    let reader = new FileReader();
+
+    reader.onload = function() {
+
+        let image = reader.result;
+
+        try {
+            localStorage.setItem("xojiboboHero", image);
+            document.getElementById("heroImage").src = image;
+            alert("Bosh sahifa rasmi saqlandi!");
+        } catch(error) {
+            alert("Rasm juda katta. Kichikroq rasm tanlang.");
+        }
+    };
+
+    reader.readAsDataURL(file);
+}
+
+// LOGOTIPNI YUKLASH
+
+function uploadLogo(event) {
+
+    let file = event.target.files[0];
+
+    if (!file) return;
+
+    if (!file.type.startsWith("image/")) {
+        alert("Rasm faylini tanlang!");
+        return;
+    }
+
+    let reader = new FileReader();
+
+    reader.onload = function() {
+
+        let image = reader.result;
+
+        try {
+            localStorage.setItem("xojiboboLogo", image);
+            showLogo(image);
+            alert("Logotip saqlandi!");
+        } catch(error) {
+            alert("Rasm juda katta. Kichikroq rasm tanlang.");
+        }
+    };
+
+    reader.readAsDataURL(file);
+}
+
+// LOGOTIPNI KO‘RSATISH
+
+function showLogo(image) {
+
+    let main = document.getElementById("mainLogo");
+    let header = document.getElementById("headerLogo");
+
+    main.src = image;
+    header.src = image;
+
+    main.style.display = "block";
+    header.style.display = "block";
+}
+
+// OLDIN SAQLANGAN RASMLARNI YUKLASH
+
+let savedHero = localStorage.getItem("xojiboboHero");
+let savedLogo = localStorage.getItem("xojiboboLogo");
+
+if (savedHero) {
+    document.getElementById("heroImage").src = savedHero;
+}
+
+if (savedLogo) {
+    showLogo(savedLogo);
+}
+
+
+// ==================================
+// CHEK KALKULYATORI
+// ==================================
+
+let receiptItems = [];
+
+// MAHSULOTLARNI TANLASH RO‘YXATIGA CHIQARISH
+
+function fillReceiptProducts() {
+
+    let select = document.getElementById("receiptProduct");
+
+    let oldValue = select.value;
+
+    select.innerHTML = '<option value="">Kolbasa turini tanlang</option>';
+
+    products.forEach(item => {
+
+        let option = document.createElement("option");
+
+        option.value = item.id;
+        option.textContent = item.name + " — " + money(item.price);
+
+        select.appendChild(option);
+    });
+
+    if (products.some(item => String(item.id) === oldValue)) {
+        select.value = oldValue;
+    }
+}
+
+// CHEKKA MAHSULOT QO‘SHISH
+
+function addReceiptItem() {
+
+    let productId = Number(document.getElementById("receiptProduct").value);
+
+    let weight = Number(document.getElementById("receiptWeight").value);
+
+    let product = products.find(item => item.id === productId);
+
+    if (!product) {
+        alert("Avval kolbasa turini tanlang!");
+        return;
+    }
+
+    if (!weight || weight <= 0) {
+        alert("Kilogrammni to‘g‘ri kiriting!");
+        return;
+    }
+
+    receiptItems.push({
+
+        id: Date.now(),
+        name: product.name,
+        price: Number(product.price),
+        weight: weight
+
+    });
+
+    document.getElementById("receiptWeight").value = "";
+
+    updateReceipt();
+}
+
+// SUMMANI AVTOMATIK HISOBLASH
+
+function updateReceipt() {
+
+    let rows = document.getElementById("receiptRows");
+
+    let total = 0;
+
+    rows.innerHTML = "";
+
+    if (receiptItems.length === 0) {
+
+        rows.innerHTML = `
+            <tr>
+                <td colspan="5" class="receipt-empty">
+                    Hozircha mahsulot qo‘shilmagan.
+                </td>
+            </tr>
+        `;
+    }
+
+    receiptItems.forEach(item => {
+
+        // 1 KG NARXI × OLINGAN KG
+
+        let sum = item.price * item.weight;
+
+        total += sum;
+
+        rows.innerHTML += `
+            <tr>
+
+                <td>${item.name}</td>
+
+                <td>${item.weight} kg</td>
+
+                <td>${item.price.toLocaleString("uz-UZ")} so‘m</td>
+
+                <td>${Math.round(sum).toLocaleString("uz-UZ")} so‘m</td>
+
+                <td class="no-print">
+
+                    <button class="btn btn-red"
+                            onclick="removeReceiptItem(${item.id})">
+                        ✕
+                    </button>
+
+                </td>
+
+            </tr>
+        `;
+    });
+
+    // UMUMIY SUMMA
+
+    document.getElementById("receiptTotal").textContent =
+        "Jami: " + Math.round(total).toLocaleString("uz-UZ") + " so‘m";
+
+    // TO‘LANGAN PUL VA QAYTIM
+
+    let paid = Number(document.getElementById("paidAmount").value) || 0;
+
+    let change = Math.max(0, paid - total);
+
+    document.getElementById("changeAmount").value =
+        Math.round(change).toLocaleString("uz-UZ") + " so‘m";
+
+    document.getElementById("printPaid").textContent =
+        "To‘langan pul: " + paid.toLocaleString("uz-UZ") + " so‘m";
+
+    document.getElementById("printChange").textContent =
+        "Qaytim: " + Math.round(change).toLocaleString("uz-UZ") + " so‘m";
+}
+
+// CHEKDAN MAHSULOTNI O‘CHIRISH
+
+function removeReceiptItem(id) {
+
+    receiptItems = receiptItems.filter(item => item.id !== id);
+
+    updateReceipt();
+}
+
+// CHEKNI TOZALASH
+
+function clearReceipt() {
+
+    receiptItems = [];
+
+    document.getElementById("paidAmount").value = "";
+
+    updateReceipt();
+}
+
+// CHEKNI CHOP ETISH
+
+function printReceipt() {
+
+    if (receiptItems.length === 0) {
+        alert("Chek chiqarish uchun avval mahsulot qo‘shing!");
+        return;
+    }
+
+    let paid = Number(document.getElementById("paidAmount").value) || 0;
+
+    let total = receiptItems.reduce(
+        (sum, item) => sum + item.price * item.weight, 0
+    );
+
+    let change = Math.max(0, paid - total);
+
+    document.getElementById("receiptDate").textContent =
+        "Sana: " + new Date().toLocaleString("uz-UZ");
+
+    document.getElementById("printPaid").style.display = "block";
+
+    document.getElementById("printChange").style.display = "block";
+
+    document.getElementById("printPaid").textContent =
+        "To‘langan pul: " + paid.toLocaleString("uz-UZ") + " so‘m";
+
+    document.getElementById("printChange").textContent =
+        "Qaytim: " + Math.round(change).toLocaleString("uz-UZ") + " so‘m";
+
+    window.print();
+
+    document.getElementById("printPaid").style.display = "none";
+
+    document.getElementById("printChange").style.display = "none";
+}
+
+
+// SAYT OCHILGANDA ISHLAYDI
+
+showProducts();
+
+fillReceiptProducts();
+
+updateReceipt();
+
+</script>
+
+</body>
+</html>
